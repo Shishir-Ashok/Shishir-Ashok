@@ -146,7 +146,7 @@ def get_total_loc():
 def update_svg(current_repo, languages, contributions, lines_added, lines_removed):
     svg = minidom.parse('template.svg')
     tspan = svg.getElementsByTagName('tspan')
-    tspan[0].firstChild.data = f"Currently working on: {current_repo}"
+    # tspan[0].firstChild.data = f"Currently working on: {current_repo}"
     tspan[1].firstChild.data = f"Languages used: {languages}"
     tspan[2].firstChild.data = f"Total contributions: {contributions}"
     tspan[3].firstChild.data = f"Lines added: {lines_added}++"
