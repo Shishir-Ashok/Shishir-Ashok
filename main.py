@@ -9,7 +9,8 @@ class GitHubStats:
     def __init__(self, token):
         self.g = Github(token)
         self.user = self.g.get_user()
-        
+
+    
     def get_stats(self):
         # Collect GitHub statistics
         repos = list(self.user.get_repos())
