@@ -17,8 +17,11 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 ### 📊 GitHub Stats
 - Recent Contribution: [**Shishir-Ashok**](https://github.com/Shishir-Ashok/Shishir-Ashok)
 - Repos : 10 
-- Lines of Code: 20 (```diff +10, --10```)
-  
+- Lines of Code: 20 (```diff + 10, -- 10```)
+
+  ```diff
+- text in red
++ ```
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Shishir-Ashok&layout=compact&theme=radical)
 
 ---
