@@ -1,7 +1,8 @@
 import os
+import base64
+import textwrap
 from github import Github
 from datetime import datetime
-import base64
 
 class GitHubStats:
     def __init__(self, token):
