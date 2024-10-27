@@ -1,32 +1,30 @@
-name: Update Profile SVG Cards
+name: Update GitHub Stats
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Updates every 24 hours
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+    - cron: '0 0 * * *'  # Runs daily at midnight
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
-  update-profile:
+  update-stats:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
-          
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install PyGithub
-          pip install html
-          pip install textwrap3
-          
-      - name: Update SVG profile cards
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        run: python main.py
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+
+    - name: Run update script
+      env:
+        ACCESS_TOKEN: ${{ secrets.TOKEN }}
+        user: ${{ secrets.USERNAME }}
+      run: main.py
