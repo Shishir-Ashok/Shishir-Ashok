@@ -140,8 +140,8 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 ---
 
 ### 📊 GitHub Stats
-Recent Contribution: [{current_repo}]({url_current_repo}) | Repos : {repo_count} | Lines of Code: {total_contributions}(<span style="color: #00FF00;">`{lines_added}`</span>, <span style="color: #FF6347;">`{lines_removed}`</span>)
-[Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username={user}&layout=compact&theme=radical)
+- Recent Contribution: [{current_repo}]({url_current_repo}) | Repos : {repo_count} | Lines of Code: {total_contributions}(<span style="color: #00FF00;">`{lines_added}`</span>, <span style="color: #FF6347;">`{lines_removed}`</span>)
+- [!Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username={user}&layout=compact&theme=radical)
 ---
 
 ![Views Counter](https://views-counter.vercel.app/badge?pageId=yourusername%2Frepository-name) 
