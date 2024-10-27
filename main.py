@@ -11,7 +11,7 @@ user = os.environ['user']
 
 def request_call(query):
     variables =  {'login': user}
-    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables, headers: HEADERS})
+    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables, 'headers': HEADERS})
     return response
     
 def get_current_repo():
