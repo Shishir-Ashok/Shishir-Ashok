@@ -166,5 +166,5 @@ if __name__ == '__main__':
     lines_added = 10
     lines_removed = 10
     total_contributions = lines_added + lines_removed
-    print(repo_count, current_repo, url_current_repo, languages, total_contributions, lines_added, lines_removed)
+    print(repo_count, current_repo, url_current_repo, total_contributions, lines_added, lines_removed)
     update_readme(current_repo, url_current_repo, repo_count, lines_added, lines_removed, total_contributions)    
