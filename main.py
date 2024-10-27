@@ -159,5 +159,5 @@ if __name__ == '__main__':
     languages = get_languages()
     total_contributions, restricted_contributions, total_contributions_calendar = get_contributions()
     lines_added, lines_removed = get_total_loc()
-    update_svg(current_repo, languages, total_contributions, lines_added, lines_removed)
+    # update_svg(current_repo, languages, total_contributions, lines_added, lines_removed)
     print(current_repo, languages, total_contributions, lines_added, lines_removed)
