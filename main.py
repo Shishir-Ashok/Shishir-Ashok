@@ -8,91 +8,48 @@ import hashlib
 HEADERS = {'authorization': 'token ' + os.environ['ACCESS_TOKEN']}
 user = os.environ['user']
 
+
+def request_call(query):
+    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': {'login': user}, headers=HEADERS)
+    return response
+    
 def get_current_repo():
     query = '''
-    # query($login: String!) {
-    #     user(login: $login) {
-    #         repositories(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
-    #             nodes {
-    #                 nameWithOwner
-    #             }
-    #         }
-    #     }
-    # }
-    query {
-      viewer {
-        repositories(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
-          nodes {
-            name
-            owner {
-              login
+    query($login: String!) {
+        user(login: $login) {
+            repositories(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
+                nodes {
+                    nameWithOwner 
+                    url 
+                }
             }
-            url
-            description
-            updatedAt
-          }
         }
-      }
     }
     '''
-    variables = {'login': user}
-    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
+    response = request_call(query)
     if response.status_code == 200:
         print("Repo: ",response.json())
-        return response.json()
+        return response.json()['data']['user']['repositories']['nodes'][0]['nameWithOwner'], response.json()['url']
         # return response.json()['data']['user']['repositories']['nodes'][0]['nameWithOwner']
     else:
         raise Exception('Failed to fetch current repo', response.status_code, response.text)
 
-def get_languages():
+def get_repo_count():
     query = '''
-    query($login: String!) {
-        user(login: $login) {
-            repositories(first: 100) {
-                nodes {
-                    languages(first: 5) {
-                        edges {
-                            node {
-                                name
-                            }
-                        }
-                    }
-                }
-            }
+    query {
+      viewer {
+        repositories {
+          totalCount
         }
-    }'''
-    variables = {'login': user}
-    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
+      }
+    }
+    '''
+    response = request_call(query)
     if response.status_code == 200:
-        languages = set()
-        for repo in response.json()['data']['user']['repositories']['nodes']:
-            for lang in repo['languages']['edges']:
-                languages.add(lang['node']['name'])
-        return ', '.join(languages)
+        print("Repo: ",response.json())
+        return response.json()
     else:
-        raise Exception('Failed to fetch languages', response.status_code, response.text)
-
-def get_contributions():
-    query = '''
-    query($login: String!) {
-        user(login: $login) {
-            contributionsCollection {
-                totalCommitContributions
-                restrictedContributionsCount
-                contributionCalendar {
-                    totalContributions
-                }
-            }
-        }
-    }'''
-    variables = {'login': user}
-    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
-    if response.status_code == 200:
-        data = response.json()['data']['user']['contributionsCollection']
-        print(f"data['totalCommitContributions'] : {data['totalCommitContributions']}, data['restrictedContributionsCount'] : {data['restrictedContributionsCount']}, data['contributionCalendar']['totalContributions'] : {data['contributionCalendar']['totalContributions']}")
-        return data['totalCommitContributions'], data['restrictedContributionsCount'], data['contributionCalendar']['totalContributions']
-    else:
-        raise Exception('Failed to fetch contributions', response.status_code, response.text)
+        raise Exception('Failed to fetch repo count', response.status_code, response.text)
 
 def recursive_loc(owner, repo_name, addition_total=0, deletion_total=0, cursor=None):
     query = '''
@@ -149,8 +106,7 @@ def get_total_loc():
             }
         }
     }'''
-    variables = {'login': user}
-    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
+    response = request_call(query)
     if response.status_code == 200:
         addition_total, deletion_total = 0, 0
         for repo in response.json()['data']['user']['repositories']['nodes']:
@@ -162,21 +118,43 @@ def get_total_loc():
     else:
         raise Exception('Failed to fetch repositories', response.status_code, response.text)
 
-def update_svg(current_repo, languages, contributions, lines_added, lines_removed):
-    svg = minidom.parse('template.svg')
-    tspan = svg.getElementsByTagName('tspan')
-    tspan[1].firstChild.data = f"Currently working on: {current_repo}"
-    tspan[2].firstChild.data = f"Languages used: {languages}"
-    tspan[3].firstChild.data = f"Total contributions: {contributions}"
-    tspan[4].firstChild.data = f"Lines added: {lines_added}++"
-    tspan[5].firstChild.data = f"Lines removed: {lines_removed}--"
-    with open('svg-card.svg', 'w', encoding='utf-8') as f:
-        f.write(svg.toxml())
+# This is your Python script that updates your README.md file with fresh data.
+
+def update_readme(current_repo, url_current_repo, repo_count, lines_added, lines_removed, total_contributions):
+    # Define the markdown content as a formatted string
+    readme_content = f"""
+# 👋 Hello! I'm Shishir
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn?style=social&logo=linkedin)](https://linkedin.com/in/shshir-ashok) [![Medium](https://img.shields.io/badge/-Medium?style=social&logo=medium)](https://shishirashok.medium.com/)
+---
+
+### 📝 About Me
+Transitioning to data science, I bring 3+ years of experience as a network engineer specializing in automating workflows and optimizing secure infrastructures. 
+With strong skills in data automation and analysis, I aim to leverage my technical expertise in a data-focused role.
+
+- 🎓 I’m currently pursuing Data Science and Analytics master's degree at Maynooth University.
+<!-- - 🌐 [My Personal Website](https://yourwebsite.com) -->
+- 📫 How to reach me: [shishir.ashoka@gmail.com](mailto:shishir.ashoka@gmail.com)
+
+---
+
+### 📊 GitHub Stats
+Recent Contribution: [{current_repo}]({url_current_repo}) | Repos : {repo_count) | Lines of Code: {total_contributions}(<span style="color: #00FF00;">`{lines_added}`</span>, <span style="color: #FF6347;">`{lines_removed}`</span>)
+[Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username={user}&layout=compact&theme=radical)
+---
+
+![Views Counter](https://views-counter.vercel.app/badge?pageId=yourusername%2Frepository-name) 
+"""
+
+    # Write the content to README.md
+    with open("README.md", "w") as file:
+        file.write(readme_content)
+
 
 if __name__ == '__main__':
-    current_repo = get_current_repo()
-    languages = get_languages()
-    total_contributions, restricted_contributions, total_contributions_calendar = get_contributions()
+    current_repo, url_current_repo = get_current_repo()
+    repo_count = get_repo_count()
     lines_added, lines_removed = get_total_loc()
-    # update_svg(current_repo, languages, total_contributions, lines_added, lines_removed)
-    print(current_repo, languages, total_contributions, lines_added, lines_removed)
+    total_contributions = lines_added + lines_removed
+    print(repo_count, current_repo, url_current_repo, languages, total_contributions, lines_added, lines_removed)
+    update_readme(current_repo, url_current_repo, repo_count, lines_added, lines_removed, total_contributions)    
