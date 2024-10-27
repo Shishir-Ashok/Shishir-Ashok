@@ -17,8 +17,10 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 ### 📊 GitHub Stats
 - Recent Contribution: [Shishir-Ashok](https://github.com/Shishir-Ashok/Shishir-Ashok)
 - Repos : 10 
-- Lines of Code: 20(<span style="color: #00FF00;">`10`</span>, <span style="color: #FF6347;">`10`</span>)
+- Lines of Code: 20(<span style="color: #00FF00;">++10</span>, <span style="color: #FF6347;">--10</span>)
+  
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Shishir-Ashok&layout=compact&theme=radical)
+
 ---
 
 ![Views Counter](https://views-counter.vercel.app/badge?pageId=yourusername%2Frepository-name) 
