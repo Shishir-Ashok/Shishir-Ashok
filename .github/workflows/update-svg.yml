@@ -1,0 +1,30 @@
+name: Update Profile SVG Cards
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Updates every 24 hours
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-profile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install PyGithub
+          
+      - name: Update SVG profile cards
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python main.py
