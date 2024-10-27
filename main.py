@@ -123,7 +123,7 @@ def get_total_loc():
 
 def update_readme(current_repo, url_current_repo, repo_count, lines_added, lines_removed, total_contributions):
     # Define the markdown content as a formatted string
-    readme_content = f"""
+    readme_content = f'''
 # 👋 Hello! I'm Shishir
 
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn?style=social&logo=linkedin)](https://linkedin.com/in/shshir-ashok) [![Medium](https://img.shields.io/badge/-Medium?style=social&logo=medium)](https://shishirashok.medium.com/)
@@ -145,7 +145,7 @@ Recent Contribution: [{current_repo}]({url_current_repo}) | Repos : {repo_count)
 ---
 
 ![Views Counter](https://views-counter.vercel.app/badge?pageId=yourusername%2Frepository-name) 
-"""
+'''
 
     # Write the content to README.md
     with open("README.md", "w") as file:
