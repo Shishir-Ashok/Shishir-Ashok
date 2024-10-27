@@ -27,4 +27,4 @@ jobs:
       env:
         ACCESS_TOKEN: ${{ secrets.TOKEN }}
         user: ${{ secrets.USERNAME }}
-      run: main.py
+      run: python main.py
