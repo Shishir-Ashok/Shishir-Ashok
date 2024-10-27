@@ -178,5 +178,37 @@ def generate_svg(stats, theme='dark'):
     
     return svg
 
+def update_profile():
+    token = os.getenv('GITHUB_TOKEN')
+    stats = GitHubStats(token).get_stats()
+    
+    # Generate both theme versions
+    dark_svg = generate_svg(stats, 'dark')
+    light_svg = generate_svg(stats, 'light')
+    
+    # Update the files in the repository
+    g = Github(token)
+    repo = g.get_repo(f"{g.get_user().login}/{g.get_user().login}")
+    
+    for theme, content in [('dark', dark_svg), ('light', light_svg)]:
+        filename = f'profile-{theme}.svg'
+        try:
+            # Try to get existing file
+            file = repo.get_contents(filename)
+            repo.update_file(
+                filename,
+                f"Update {theme} theme profile card",
+                content,
+                file.sha
+            )
+        except:
+            # Create new file if it doesn't exist
+            repo.create_file(
+                filename,
+                f"Create {theme} theme profile card",
+                content
+            )
+
+
 if __name__ == "__main__":
     update_profile()
