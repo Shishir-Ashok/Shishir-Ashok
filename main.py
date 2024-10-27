@@ -10,15 +10,31 @@ user = os.environ['user']
 
 def get_current_repo():
     query = '''
-    query($login: String!) {
-        user(login: $login) {
-            repositories(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
-                nodes {
-                    nameWithOwner
-                }
+    # query($login: String!) {
+    #     user(login: $login) {
+    #         repositories(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
+    #             nodes {
+    #                 nameWithOwner
+    #             }
+    #         }
+    #     }
+    # }
+    query {
+      viewer {
+        repositories(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
+          nodes {
+            name
+            owner {
+              login
             }
+            url
+            description
+            updatedAt
+          }
         }
-    }'''
+      }
+    }
+    '''
     variables = {'login': user}
     response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
     if response.status_code == 200:
