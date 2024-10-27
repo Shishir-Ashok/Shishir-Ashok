@@ -38,8 +38,9 @@ def get_current_repo():
     variables = {'login': user}
     response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
     if response.status_code == 200:
-        print("Repo: ",response.json()['data'])
-        return response.json()['data']['user']['repositories']['nodes'][0]['nameWithOwner']
+        print("Repo: ",response.json())
+        return response.json()
+        # return response.json()['data']['user']['repositories']['nodes'][0]['nameWithOwner']
     else:
         raise Exception('Failed to fetch current repo', response.status_code, response.text)
 
