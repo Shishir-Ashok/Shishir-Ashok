@@ -1,0 +1,7 @@
+<svg width="400" height="110">
+  <text x="10" y="20" class="small">Currently working on: </text>
+  <text x="10" y="40" class="small">Languages used: </text>
+  <text x="10" y="60" class="small">Total contributions: </text>
+  <text x="10" y="80" class="small">Lines added: </text>
+  <text x="10" y="100" class="small">Lines removed: </text>
+</svg>
