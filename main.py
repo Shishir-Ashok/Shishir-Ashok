@@ -163,7 +163,8 @@ if __name__ == '__main__':
     current_repo = "Shishir-Ashok"
     url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
     repo_count = 10
-    lines_added, lines_removed = 10
+    lines_added = 10
+    lines_removed = 10
     total_contributions = lines_added + lines_removed
     print(repo_count, current_repo, url_current_repo, languages, total_contributions, lines_added, lines_removed)
     update_readme(current_repo, url_current_repo, repo_count, lines_added, lines_removed, total_contributions)    
