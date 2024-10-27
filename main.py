@@ -1,217 +1,162 @@
+import datetime
+import requests
 import os
-import html
-import base64
-import textwrap
-from github import Github
-from datetime import datetime
+from xml.dom import minidom
+import hashlib
 
-class GitHubStats:
-    def __init__(self, token):
-        self.g = Github(token)
-        self.user = self.g.get_user()
+# GitHub API headers
+HEADERS = {'authorization': 'token ' + os.environ['ACCESS_TOKEN']}
+user = os.environ['user']
 
-    
-    def get_stats(self):
-        # Collect GitHub statistics
-        repos = list(self.user.get_repos())
-        commits = sum(repo.get_commits().totalCount for repo in repos if not repo.fork)
-        stars = sum(repo.stargazers_count for repo in repos)
-        
-        # Calculate total lines of code
-        additions = 0
-        deletions = 0
-        for repo in repos:
-            if not repo.fork:
-                try:
-                    stats = repo.get_stats_contributors()
-                    if stats:
-                        for stat in stats:
-                            if stat.author.login == self.user.login:
-                                additions += sum(week.additions for week in stat.weeks)
-                                deletions += sum(week.deletions for week in stat.weeks)
-                except:
-                    continue
-        
-        return {
-            'repos': len(repos),
-            'commits': commits,
-            'stars': stars,
-            'followers': self.user.followers,
-            'additions': additions,
-            'deletions': deletions,
-            'languages': self.get_languages()
+def get_current_repo():
+    query = '''
+    query($login: String!) {
+        user(login: $login) {
+            repositories(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
+                nodes {
+                    nameWithOwner
+                }
+            }
         }
-    
-    def get_languages(self):
-        languages = {}
-        for repo in self.user.get_repos():
-            if not repo.fork:
-                repo_langs = repo.get_languages()
-                for lang, count in repo_langs.items():
-                    languages[lang] = languages.get(lang, 0) + count
-        return dict(sorted(languages.items(), key=lambda x: x[1], reverse=True)[:5])
+    }'''
+    variables = {'login': user}
+    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
+    if response.status_code == 200:
+        return response.json()['data']['user']['repositories']['nodes'][0]['nameWithOwner']
+    else:
+        raise Exception('Failed to fetch current repo', response.status_code, response.text)
 
-def ascii_art_to_svg_text(ascii_art, x, y, color, font_size=14):
-    """Convert ASCII art string to SVG text elements."""
-    # Dedent the ASCII art to remove any common leading whitespace
-    ascii_art = textwrap.dedent(ascii_art).strip()
-    
-    # Split into lines and escape HTML special characters
-    lines = [html.escape(line) for line in ascii_art.split('\n')]
-    
-    # Convert to SVG text elements
-    text_elements = []
-    for i, line in enumerate(lines):
-        # Preserve spaces by replacing them with their HTML entity
-        line = line.replace(' ', '&#160;')
-        y_pos = y + (i * font_size)
-        text_elements.append(
-            f'<text x="{x}" y="{y_pos}" '
-            f'font-family="monospace" '
-            f'font-size="{font_size}px" '
-            f'fill="{color}">'
-            f'{line}</text>'
-        )
-    
-    return '\n'.join(text_elements)
-
-def generate_svg(stats, theme='dark'):
-    # Colors for different themes
-    colors = {
-        'dark': {
-            'bg': '#0D1117',
-            'text': '#C9D1D9',
-            'accent': '#58A6FF',
-            'secondary': '#8B949E'
-        },
-        'light': {
-            'bg': '#FFFFFF',
-            'text': '#24292F',
-            'accent': '#0969DA',
-            'secondary': '#57606A'
+def get_languages():
+    query = '''
+    query($login: String!) {
+        user(login: $login) {
+            repositories(first: 100) {
+                nodes {
+                    languages(first: 5) {
+                        edges {
+                            node {
+                                name
+                            }
+                        }
+                    }
+                }
+            }
         }
-    }
-    c = colors[theme]
-    
-    # Your ASCII art goes here as a multi-line string
-    ascii_art = '''                               
-                                                 * **#*                         
-                                          =++#+%%@#%*%#%***                     
-                                     +*###*%@@%##%%@@%@#@###                    
-                                 +#***@@%%#@%%%%@@@@@@@@@@%@%                   
-                               *#+=*+#%@%%%%%%%%@@@@@@@@@@@@%%                  
-                              ***##@@@@@@%%@@@@@@@@@@@@@@@@@##                  
-                             *#%%##@@@@@@%%%%%@@%**#%@@%%@@@@%#                 
-                             %%%%@@@@%%####***+=-----=+%@%@@@%*#                
-                            #%%%@@@#*****+*++==-------==*@@%%%###               
-                             %%@@%#++++++++====------====%%#%####               
-                            *%@%%#*===++++====---------==+%%%%##                
-                             %@%%#+======-=======--:----==+%%#*                 
-                             #%%#====-=+*#*++====+*#%%#*#-=#%+-                 
-                             %%%+==+####%##%%#*#*%%@%#*++*%@*=*+                
-                          +****%+*@**%%%%%%%%@%%@%#%#@@+%*=@+=-+                
-                          +#***#*=**#*####%%%@+-+#*%%##*++=++*-=                
-                           %*#***=+*=+##*+**%*=---*+=====+*-:=--                
-                           +#%##*===+****+*#*+-=---#*++++---=--                 
-                            +=+*+++==++++***+=====++#*+===-===                  
-                              +**+++++**######***#=++%#*++==                    
-                                  ++***%%%%########%@%%*++=                     
-                                  +*****%@%*+=--::-+==*+++                      
-                                   *****##*#**==-=====+++*                      
-                                    *****#********+====++                       
-                                    ***##**+++++=---=+++=                       
-                                     **#%#***+=++++++#+==                       
-                                  =+=+**##%%%%###%%%*=====                      
-                              ---*+==+++**#######**+=======----                 
-                           --=#****+=++***#******++======++-===------           
-                      :--*##*#%#**@++++**********++======+----=---=++++-=       
-                  =--+*####*#*#***#%************++====++*+=-=------====+--=-    
-               --====-=*#%*%#*#****%#######*****++++==+*===-==---=====+*+===--- 
-            --=====++#+++*******#*##**+**####****+++++=++=+====---====++*==++---
-          -==--=+=*==++++++*******###%#===++*******+**+++==++==-=-====++*+=+++-=
-       =======*=======++*+++***####*##%%###*+++****+++*====+++=-======++**=+++=+
-      +++=++========+++++++++++**#####*%%####***++++=*=====+++==-=====++**++++++
-    =**++=+=======+++++++***+++++**####**##***##+=====+===+=+++=======+++*++++++
-   +**#**#**=======+++++++***++====++++++++++++=====+====+++++++======++***+++++
-   ++*##%%%##*+======+++++*###*++=========+++++++====+==+=+++++++====++++*#+++=+
-   *++**##%%%%#*+======+++++**##*++==========++++====+=++++++++++==++++++*#*++=+
-  +**++++*##%%%%*+=======+++***#**+++============++++++++++++++++++++++++***++=+
-  *****+=+*#%%%@%*+++=======++**###*+++==========++++=++*+++++++++++++++**#*++=@
- =******+++*#%%%@@*++========+++*###*+*+=========+++++++**++++++++++++++**#*+++#
- ***********####%@@*++========+++**#****+++======+++=+****+++++++++++++***#*+++*
-+**#####*#**###%%%@**++========+++*##***+++++++++++=++****++**++++++++******++*=
-***#######***##%%%@%##+++=======+++****++++++++++++=+**********++++++++******+**
-    '''
-    
-    # Create the SVG template
-    svg = f'''
-    <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100%" height="100%" fill="{c['bg']}" />
-        
-        <!-- ASCII Art Section -->
-        <g>
-            {ascii_art_to_svg_text(ascii_art, 50, 50, c['text'], 14)}
-        </g>
-        
-        <!-- User Info Section -->
-        <g>
-            {ascii_art_to_svg_text(user_info, 50, 400, c['text'], 14)}
-        </g>
-        
-        <!-- Stats Section -->
-        <g transform="translate(450, 50)">
-            <text font-family="monospace" font-size="14" fill="{c['text']}">
-                <tspan x="0" dy="20">GitHub Stats:</tspan>
-                <tspan x="0" dy="20">——————</tspan>
-                <tspan x="0" dy="20">Repos: {stats['repos']} {{Contributed: {stats.get('contributed', 0)}}}</tspan>
-                <tspan x="0" dy="20">Commits: {stats['commits']:,}</tspan>
-                <tspan x="0" dy="20">Stars: {stats['stars']}</tspan>
-                <tspan x="0" dy="20">Followers: {stats['followers']}</tspan>
-                <tspan x="0" dy="20">Lines: {stats['additions'] + stats['deletions']:,}</tspan>
-                <tspan x="0" dy="20">({stats['additions']:,}++, {stats['deletions']:,}--)</tspan>
-            </text>
-        </g>
-        
-        <!-- Update Timestamp -->
-        <text x="750" y="580" text-anchor="end" font-family="monospace" font-size="10" fill="{c['secondary']}">
-            Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}
-        </text>
-    </svg>
-    '''
-    
-    return svg
+    }'''
+    variables = {'login': user}
+    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
+    if response.status_code == 200:
+        languages = set()
+        for repo in response.json()['data']['user']['repositories']['nodes']:
+            for lang in repo['languages']['edges']:
+                languages.add(lang['node']['name'])
+        return ', '.join(languages)
+    else:
+        raise Exception('Failed to fetch languages', response.status_code, response.text)
 
-def update_profile():
-    token = os.getenv('GITHUB_TOKEN')
-    stats = GitHubStats(token).get_stats()
-    
-    # Generate both theme versions
-    dark_svg = generate_svg(stats, 'dark')
-    light_svg = generate_svg(stats, 'light')
-    
-    # Update the files in the repository
-    g = Github(token)
-    repo = g.get_repo(f"{g.get_user().login}/{g.get_user().login}")
-    
-    for theme, content in [('dark', dark_svg), ('light', light_svg)]:
-        filename = f'profile-{theme}.svg'
-        try:
-            # Try to get existing file
-            file = repo.get_contents(filename)
-            repo.update_file(
-                filename,
-                f"Update {theme} theme profile card",
-                content,
-                file.sha
-            )
-        except:
-            # Create new file if it doesn't exist
-            repo.create_file(
-                filename,
-                f"Create {theme} theme profile card",
-                content
-            )
+def get_contributions():
+    query = '''
+    query($login: String!) {
+        user(login: $login) {
+            contributionsCollection {
+                totalCommitContributions
+                restrictedContributionsCount
+                contributionCalendar {
+                    totalContributions
+                }
+            }
+        }
+    }'''
+    variables = {'login': user}
+    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
+    if response.status_code == 200:
+        data = response.json()['data']['user']['contributionsCollection']
+        return data['totalCommitContributions'], data['restrictedContributionsCount'], data['contributionCalendar']['totalContributions']
+    else:
+        raise Exception('Failed to fetch contributions', response.status_code, response.text)
 
+def recursive_loc(owner, repo_name, addition_total=0, deletion_total=0, cursor=None):
+    query = '''
+    query ($repo_name: String!, $owner: String!, $cursor: String) {
+        repository(name: $repo_name, owner: $owner) {
+            defaultBranchRef {
+                target {
+                    ... on Commit {
+                        history(first: 100, after: $cursor) {
+                            edges {
+                                node {
+                                    additions
+                                    deletions
+                                    author {
+                                        user {
+                                            login
+                                        }
+                                    }
+                                }
+                            }
+                            pageInfo {
+                                endCursor
+                                hasNextPage
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }'''
+    variables = {'repo_name': repo_name, 'owner': owner, 'cursor': cursor}
+    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
+    if response.status_code == 200:
+        data = response.json()['data']['repository']['defaultBranchRef']['target']['history']
+        for edge in data['edges']:
+            if edge['node']['author']['user'] and edge['node']['author']['user']['login'] == user:
+                addition_total += edge['node']['additions']
+                deletion_total += edge['node']['deletions']
+        if data['pageInfo']['hasNextPage']:
+            return recursive_loc(owner, repo_name, addition_total, deletion_total, data['pageInfo']['endCursor'])
+        else:
+            return addition_total, deletion_total
+    else:
+        raise Exception('Failed to fetch LOC data', response.status_code, response.text)
 
-if __name__ == "__main__":
-    update_profile()
+def get_total_loc():
+    query = '''
+    query($login: String!) {
+        user(login: $login) {
+            repositories(first: 100) {
+                nodes {
+                    nameWithOwner
+                }
+            }
+        }
+    }'''
+    variables = {'login': user}
+    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
+    if response.status_code == 200:
+        addition_total, deletion_total = 0, 0
+        for repo in response.json()['data']['user']['repositories']['nodes']:
+            owner, repo_name = repo['nameWithOwner'].split('/')
+            additions, deletions = recursive_loc(owner, repo_name)
+            addition_total += additions
+            deletion_total += deletions
+        return addition_total, deletion_total
+    else:
+        raise Exception('Failed to fetch repositories', response.status_code, response.text)
+
+def update_svg(current_repo, languages, contributions, lines_added, lines_removed):
+    svg = minidom.parse('template.svg')
+    tspan = svg.getElementsByTagName('tspan')
+    tspan[0].firstChild.data = f"Currently working on: {current_repo}"
+    tspan[1].firstChild.data = f"Languages used: {languages}"
+    tspan[2].firstChild.data = f"Total contributions: {contributions}"
+    tspan[3].firstChild.data = f"Lines added: {lines_added}++"
+    tspan[4].firstChild.data = f"Lines removed: {lines_removed}--"
+    with open('svg-card.svg', 'w', encoding='utf-8') as f:
+        f.write(svg.toxml())
+
+if __name__ == '__main__':
+    current_repo = get_current_repo()
+    languages = get_languages()
+    total_contributions, restricted_contributions, total_contributions_calendar = get_contributions()
+    lines_added, lines_removed = get_total_loc()
+    update_svg(current_repo, languages, total_contributions, lines_added, lines_removed)
