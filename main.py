@@ -89,7 +89,7 @@ def get_contributions():
     response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
     if response.status_code == 200:
         data = response.json()['data']['user']['contributionsCollection']
-        print(f"data['totalCommitContributions'] : {}, data['restrictedContributionsCount'] : {}, data['contributionCalendar']['totalContributions'] : {}",data['totalCommitContributions'], data['restrictedContributionsCount'], data['contributionCalendar']['totalContributions'])
+        print(f"data['totalCommitContributions'] : {data['totalCommitContributions']}, data['restrictedContributionsCount'] : {data['restrictedContributionsCount']}, data['contributionCalendar']['totalContributions'] : {data['contributionCalendar']['totalContributions']}")
         return data['totalCommitContributions'], data['restrictedContributionsCount'], data['contributionCalendar']['totalContributions']
     else:
         raise Exception('Failed to fetch contributions', response.status_code, response.text)
