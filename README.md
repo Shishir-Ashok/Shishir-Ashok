@@ -16,8 +16,8 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 ### 📊 GitHub Stats
 - Recent Contribution: [**Shishir-Ashok**](https://github.com/Shishir-Ashok/Shishir-Ashok)
 - Repos : 10 
-- Lines of Code: 20 (```diff
- 10, -- 10```)
+- Lines of Code: 20 ($${\color{green}1000+ \space \comma , \color{red}200-}$$)
+ 
 
 
 - $${\color{red}Welcome \space \color{lightblue}To \space \color{orange}Stackoverflow}$$
