@@ -1,4 +1,5 @@
 import os
+import html
 import base64
 import textwrap
 from github import Github
