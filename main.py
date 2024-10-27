@@ -146,11 +146,11 @@ def get_total_loc():
 def update_svg(current_repo, languages, contributions, lines_added, lines_removed):
     svg = minidom.parse('template.svg')
     tspan = svg.getElementsByTagName('tspan')
-    # tspan[0].firstChild.data = f"Currently working on: {current_repo}"
-    tspan[1].firstChild.data = f"Languages used: {languages}"
-    tspan[2].firstChild.data = f"Total contributions: {contributions}"
-    tspan[3].firstChild.data = f"Lines added: {lines_added}++"
-    tspan[4].firstChild.data = f"Lines removed: {lines_removed}--"
+    tspan[1].firstChild.data = f"Currently working on: {current_repo}"
+    tspan[2].firstChild.data = f"Languages used: {languages}"
+    tspan[3].firstChild.data = f"Total contributions: {contributions}"
+    tspan[4].firstChild.data = f"Lines added: {lines_added}++"
+    tspan[5].firstChild.data = f"Lines removed: {lines_removed}--"
     with open('svg-card.svg', 'w', encoding='utf-8') as f:
         f.write(svg.toxml())
 
@@ -160,3 +160,4 @@ if __name__ == '__main__':
     total_contributions, restricted_contributions, total_contributions_calendar = get_contributions()
     lines_added, lines_removed = get_total_loc()
     update_svg(current_repo, languages, total_contributions, lines_added, lines_removed)
+    print(current_repo, languages, total_contributions, lines_added, lines_removed)
