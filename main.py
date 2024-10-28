@@ -165,7 +165,7 @@ if __name__ == '__main__':
     # repo_count = get_repo_count()
     # lines_added, lines_removed = get_total_loc()
     # total_contributions = lines_added + lines_removed
-
+    
     current_repo = "Shishir-Ashok"
     url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
     repo_count = 10
