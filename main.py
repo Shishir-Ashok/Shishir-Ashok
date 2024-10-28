@@ -140,8 +140,13 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 ---
 
 ### 📊 GitHub Stats
-- Recent Contribution: [{current_repo}]({url_current_repo}) | Repos : {repo_count} | Lines of Code: {total_contributions}(<span style="color: #00FF00;">`{lines_added}`</span>, <span style="color: #FF6347;">`{lines_removed}`</span>)
-- [!Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username={user}&layout=compact&theme=radical)
+- Recent Contribution: [{current_repo}]({url_current_repo})
+- Repos : {repo_count}
+- Lines of Code: {total_contributions} ($$(\color{\#2dba4e}{lines_added}+ \space , \color{\#f0440a}{lines_removed}$$)
+
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username={user}&layout=compact&theme=radical)
+
 ---
 
 ![Views Counter](https://views-counter.vercel.app/badge?pageId=yourusername%2Frepository-name) 
@@ -153,18 +158,12 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 
 
 if __name__ == '__main__':
-    # current_repo, url_current_repo = get_current_repo()
-    # if current_repo == "***/***":
-    #     current_repo = "Shishir-Ashok"
-    #     url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
-    # repo_count = get_repo_count()
-    # lines_added, lines_removed = get_total_loc()
-    # total_contributions = lines_added + lines_removed
-    current_repo = "Shishir-Ashok"
-    url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
-    repo_count = 10
-    lines_added = 10
-    lines_removed = 10
+    current_repo, url_current_repo = get_current_repo()
+    if current_repo == "***/***":
+        current_repo = "Shishir-Ashok"
+        url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
+    repo_count = get_repo_count()
+    lines_added, lines_removed = get_total_loc()
     total_contributions = lines_added + lines_removed
     print(repo_count, current_repo, url_current_repo, total_contributions, lines_added, lines_removed)
     update_readme(current_repo, url_current_repo, repo_count, lines_added, lines_removed, total_contributions)    
