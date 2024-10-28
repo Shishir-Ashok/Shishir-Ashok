@@ -158,19 +158,12 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 
 
 if __name__ == '__main__':
-    # current_repo, url_current_repo = get_current_repo()
-    # if current_repo == "***/***":
-    #     current_repo = "Shishir-Ashok"
-    #     url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
-    # repo_count = get_repo_count()
-    # lines_added, lines_removed = get_total_loc()
-    # total_contributions = lines_added + lines_removed
-    
-    current_repo = "Shishir-Ashok"
-    url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
-    repo_count = 10
-    lines_added = 100
-    lines_removed = 50
+    current_repo, url_current_repo = get_current_repo()
+    if current_repo == "***/***":
+        current_repo = "Shishir-Ashok"
+        url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
+    repo_count = get_repo_count()
+    lines_added, lines_removed = get_total_loc()
     total_contributions = lines_added + lines_removed
     
     print(repo_count, current_repo, url_current_repo, total_contributions, lines_added, lines_removed)
