@@ -126,7 +126,7 @@ def update_readme(current_repo, url_current_repo, repo_count, lines_added, lines
     readme_content = f"""
 # 👋 Hello! I'm Shishir
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shshir-ashok)  |  [![Medium](https://img.shields.io/badge/Medium-00AB6C?style=flat&logo=medium&logoColor=white&color=000000)](https://shishirashok.medium.com/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shshir-ashok) [![Medium](https://img.shields.io/badge/Medium-00AB6C?style=flat&logo=medium&logoColor=white&color=000000)](https://shishirashok.medium.com/)
 ---
 
 ### 📝 About Me
@@ -142,7 +142,7 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 ### 📊 GitHub Stats
 - Recent Contribution: [{current_repo}]({url_current_repo})
 - Repos : {repo_count}
-- Lines of Code: {total_contributions} ($$(\\color{{\#2dba4e}}{lines_added}+ \space , \\color{{\#f0440a}}{lines_removed}$$)
+- Lines of Code: {total_contributions} ($$\\color{{\#2dba4e}}{lines_added}+ \space \space \space \\color{{\#f0440a}}{lines_removed}$$)
 
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username={user}&layout=compact&theme=radical)
