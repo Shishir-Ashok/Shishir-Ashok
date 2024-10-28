@@ -137,7 +137,7 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 ---
 
 ### 📊 GitHub Stats
-- Recent Contribution: [{current_repo}]({url_current_repo})
+- Currently working on: [{current_repo}]({url_current_repo})
 - Repos : {repo_count}
 - Lines of Code: {total_contributions} ($$\\color{{\#2dba4e}}{lines_added}++ \space \space \space \\color{{\#f0440a}}{lines_removed}--$$)
 
