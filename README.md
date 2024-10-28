@@ -19,7 +19,7 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 - Lines of Code: 20 ($${\color{green}1000+ \space \comma , \color{red}200-}$$)
 
 | Recent Contribution:            | [**Shishir-Ashok**](https://github.com/Shishir-Ashok/Shishir-Ashok)                    |
-| :------------------------------ | :------------------------------ |
+| ------------------------------  | ------------------------------ |
 | Repos:                          | 10    |
 | Lines of Code:                  | 20 ($${\color{green}1000+ \space \comma , \color{red}200-}$$)                   |
 
