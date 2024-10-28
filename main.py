@@ -1,8 +1,5 @@
-import datetime
 import requests
 import os
-from xml.dom import minidom
-import hashlib
 
 # GitHub API headers
 HEADERS = {'authorization': 'token ' + os.environ['ACCESS_TOKEN']}
