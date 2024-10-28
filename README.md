@@ -1,7 +1,7 @@
 
 # 👋 Hello! I'm Shishir
 
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn?style=social&logo=linkedin)](https://linkedin.com/in/shshir-ashok) [![Medium](https://img.shields.io/badge/-Medium?style=social&logo=medium)](https://shishirashok.medium.com/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shshir-ashok) [![Medium](https://img.shields.io/badge/-Medium?style=social&logo=medium)](https://shishirashok.medium.com/)
 ---
 
 ### 📝 About Me
