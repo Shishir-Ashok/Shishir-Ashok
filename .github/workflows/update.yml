@@ -25,7 +25,7 @@ jobs:
 
     - name: Run update script
       env:
-        ACCESS_TOKEN: ${{ secrets.TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         user: ${{ secrets.USERNAME }}
       run: python main.py
 
