@@ -155,10 +155,10 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 
 
 if __name__ == '__main__':
-    current_repo, url_current_repo = get_current_repo()
-    if current_repo == "***/***":
-        current_repo = "Shishir-Ashok"
-        url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
+    # current_repo, url_current_repo = get_current_repo()
+    # if current_repo == "***/***":
+    current_repo = "Shishir-Ashok"
+    url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
     repo_count = get_repo_count()
     lines_added, lines_removed = get_total_loc()
     total_contributions = lines_added + lines_removed
