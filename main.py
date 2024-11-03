@@ -43,8 +43,7 @@ def get_repo_count():
     '''
     response = request_call(query)
     if response.status_code == 200:
-        print("Repo: ",response.json())
-        return response.json()
+        return response.json()['data']['viewer']['repositories']['totalCount']
     else:
         raise Exception('Failed to fetch repo count', response.status_code, response.text)
 
