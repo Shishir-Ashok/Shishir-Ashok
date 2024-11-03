@@ -150,7 +150,7 @@ With strong skills in data automation and analysis, I aim to leverage my technic
     """
 
     # Write the content to README.md
-    with open("README.md", "w") as file:
+    with open("README.md", "w", encoding='utf-8') as file:
         file.write(readme_content)
 
 
