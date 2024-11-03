@@ -155,15 +155,17 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 
 
 if __name__ == '__main__':
-    print("Trying to authenticate : \n\n",request_call('').text)
-    print("\n\n Rate Limit: \n",requests.post('https://api.github.com/rate_limit', json={'headers': HEADERS}))
-    # current_repo, url_current_repo = get_current_repo()
-    # if current_repo == "***/***":
-    #     current_repo = "Shishir-Ashok"
-    #     url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
-    # repo_count = get_repo_count()
-    # lines_added, lines_removed = get_total_loc()
-    # total_contributions = lines_added + lines_removed
+
+    # Authenticating user API calls
+    requests.get('https://api.github.com/graphql', headers=HEADERS)
     
-    # print(repo_count, current_repo, url_current_repo, total_contributions, lines_added, lines_removed)
-    # update_readme(current_repo, url_current_repo, repo_count, lines_added, lines_removed, total_contributions)    
+    current_repo, url_current_repo = get_current_repo()
+    if current_repo == "***/***":
+        current_repo = "Shishir-Ashok"
+        url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
+    repo_count = get_repo_count()
+    lines_added, lines_removed = get_total_loc()
+    total_contributions = lines_added + lines_removed
+    
+    print(repo_count, current_repo, url_current_repo, total_contributions, lines_added, lines_removed)
+    update_readme(current_repo, url_current_repo, repo_count, lines_added, lines_removed, total_contributions)    
