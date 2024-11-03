@@ -8,7 +8,7 @@ user = os.environ['user']
 
 def request_call(query):
     variables =  {'login': user}
-    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables, 'headers': HEADERS})
+    response = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS})
     return response
     
 def get_current_repo():
@@ -155,9 +155,6 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 
 
 if __name__ == '__main__':
-
-    # Authenticating user API calls
-    requests.get('https://api.github.com/graphql', headers=HEADERS)
     
     current_repo, url_current_repo = get_current_repo()
     if current_repo == "***/***":
