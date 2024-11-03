@@ -156,7 +156,7 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 
 if __name__ == '__main__':
     print("Trying to authenticate : \n\n",request_call('').text)
-    print("\nHeaders: ",HEADERS)
+    print(requests.post('https://api.github.com/rate_limit', json={'headers': HEADERS}).text)
     # current_repo, url_current_repo = get_current_repo()
     # if current_repo == "***/***":
     #     current_repo = "Shishir-Ashok"
