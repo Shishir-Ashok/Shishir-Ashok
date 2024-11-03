@@ -18,7 +18,7 @@ ip_list = [
 
 
 # GitHub API headers
-HEADERS = {'authorization': 'token ' + os.environ['ACCESS_TOKEN'], 'X-Forwarded-For': random.choice(ip_list)}
+HEADERS = {'authorization': 'token ' + os.environ['GH_TOKEN'], 'X-Forwarded-For': random.choice(ip_list)}
 user = os.environ['user']
 
 def request_call(query):
