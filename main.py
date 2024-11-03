@@ -2,23 +2,8 @@ import requests
 import random
 import os
 
-
-ip_list = [
-'113.127.68.11',
-'10.211.119.132',
-'54.84.122.206',
-'203.42.252.207',
-'70.73.191.224',
-'37.3.163.239',
-'255.156.156.189',
-'233.227.58.48',
-'181.71.235.83',
-'150.20.12.106'
-]
-
-
 # GitHub API headers
-HEADERS = {'authorization': 'bearer ' + os.environ['GH_TOKEN'], 'X-Forwarded-For': random.choice(ip_list)}
+HEADERS = {'authorization': 'bearer ' + os.environ['GH_TOKEN']}
 user = os.environ['user']
 
 def request_call(query):
