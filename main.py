@@ -151,8 +151,8 @@ I'm a data science enthusiast transitioning from a network engineering backgroun
 
 I love connecting with fellow data enthusiasts, professionals, and learners. Whether you have questions, insights, or just want to chat data, feel free to reach out! </br>
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shshir-ashok) [![Medium](https://img.shields.io/badge/Medium-00AB6C?style=flat&logo=medium&logoColor=white&color=000000)](https://shishirashok.medium.com/)
-$$\space \space \space \space \space \space \space$$[![Portfolio](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)](https://shishir-ashok.netlify.app/) </br>
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shshir-ashok) [![Medium](https://img.shields.io/badge/Medium-00AB6C?style=flat&logo=medium&logoColor=white&color=000000)](https://shishirashok.medium.com/) </br>
+$$\space \space \space \space \space \space \space$$[![Portfolio](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)](https://shishir-ashok.netlify.app/)
     """
 
     # Write the content to README.md
