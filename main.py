@@ -121,30 +121,38 @@ def update_readme(current_repo, url_current_repo, repo_count, lines_added, lines
     readme_content = f"""
 # 👋 Hello! I'm Shishir
 
+$$\space \space \space \space \space \space \space$$[![Portfolio](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)](https://shishir-ashok.netlify.app/) </br>
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shshir-ashok) [![Medium](https://img.shields.io/badge/Medium-00AB6C?style=flat&logo=medium&logoColor=white&color=000000)](https://shishirashok.medium.com/)
----
-
-### 📝 About Me
-Transitioning to data science, I bring 3+ years of experience as a network engineer specializing in automating workflows and optimizing secure infrastructures. 
-With strong skills in data automation and analysis, I aim to leverage my technical expertise in a data-focused role.
-
-- 🎓 I’m currently pursuing Data Science and Analytics master's degree at Maynooth University.
-- 🌐 [My Portfolio](https://shishir-ashok.netlify.app/)
-- 📫 How to reach me: [shishir.ashoka@gmail.com](mailto:shishir.ashoka@gmail.com)
 
 ---
 
-### 📊 GitHub Stats
-- Currently working on: [{current_repo}]({url_current_repo})
-- Repos : {repo_count}
-- Lines of Code: {total_contributions:,} ($$\\color{{\#2dba4e}}{lines_added:,}++ \space \space \space \\color{{\#f0440a}}{lines_removed:,}--$$)
+## 🌟 About Me
+I'm a data science enthusiast transitioning from a network engineering background. With over 3 years of experience in automating workflows and optimizing secure infrastructures, I'm now diving deep into the world of data science.
 
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username={user}&layout=compact&theme=radical)
+| Attribute          | Details                                                                 |
+|--------------------|-------------------------------------------------------------------------|
+| 🎓 **Education**   | Pursuing a Master's in Data Science and Analytics at Maynooth University|
+| 🌐 **Portfolio**   | [Check out my work](https://shishir-ashok.netlify.app/)                 |
+| 📫 **Contact**     | [shishir.ashoka@gmail.com](mailto:shishir.ashoka@gmail.com)             |
 
 ---
 
-![Views Counter](https://views-counter.vercel.app/badge?pageId=yourusername%2Frepository-name) 
+## 📊 GitHub Stats
+
+| **Metric**                  | **Stats**                                           |
+| --------------------------- | --------------------------------------------------- |
+| 🛠️ **Current Project**     | [{current_repo}]({url_current_repo})                |
+| 📂 **Total Repos**         | {repo_count}                                        |
+| 📝 **Lines of Code**       | {total_contributions:,} ($$\\color{{\#2dba4e}}{lines_added:,}++ \space \space \space \\color{{\#f0440a}}{lines_removed:,}--$$)                        |
+
+---
+
+## 🤝 Let’s Connect!
+
+I love connecting with fellow data enthusiasts, professionals, and learners. Whether you have questions, insights, or just want to chat data, feel free to reach out! </br>
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shshir-ashok) [![Medium](https://img.shields.io/badge/Medium-00AB6C?style=flat&logo=medium&logoColor=white&color=000000)](https://shishirashok.medium.com/)
+$$\space \space \space \space \space \space \space$$[![Portfolio](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)](https://shishir-ashok.netlify.app/) </br>
     """
 
     # Write the content to README.md
@@ -155,9 +163,6 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 if __name__ == '__main__':
     
     current_repo, url_current_repo = get_current_repo()
-    if current_repo == "***/***":
-        current_repo = "Shishir-Ashok"
-        url_current_repo = "https://github.com/Shishir-Ashok/Shishir-Ashok"
     repo_count = get_repo_count()
     lines_added, lines_removed = get_total_loc()
     total_contributions = lines_added + lines_removed
