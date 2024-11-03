@@ -16,8 +16,8 @@ With strong skills in data automation and analysis, I aim to leverage my technic
 
 ### 📊 GitHub Stats
 - Currently working on: [Shishir-Ashok/Shishir-Ashok](https://github.com/Shishir-Ashok/Shishir-Ashok)
-- Repos : {'data': {'viewer': {'repositories': {'totalCount': 16}}}}
-- Lines of Code: 8,141,343 ($$\color{\#2dba4e}5,625,852++ \space \space \space \color{\#f0440a}2,515,491--$$)
+- Repos : 16
+- Lines of Code: 8,141,346 ($$\color{\#2dba4e}5,625,853++ \space \space \space \color{\#f0440a}2,515,493--$$)
 
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Shishir-Ashok&layout=compact&theme=radical)
