@@ -1,7 +1,7 @@
 
 # 👋 Hello! I'm Shishir
 
-![](https://komarev.com/ghpvc/?username=shishir-ashok&color=blue)
+$$\space \space \space \space \space \space \space$$[![Portfolio](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)](https://shishir-ashok.netlify.app/) </br>
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shshir-ashok) [![Medium](https://img.shields.io/badge/Medium-00AB6C?style=flat&logo=medium&logoColor=white&color=000000)](https://shishirashok.medium.com/)
 
 ---
@@ -23,7 +23,7 @@ I'm a data science enthusiast transitioning from a network engineering backgroun
 | --------------------------- | --------------------------------------------------- |
 | 🛠️ **Current Project**     | [Shishir-Ashok/Analytic-Alley](https://github.com/Shishir-Ashok/Analytic-Alley)                |
 | 📂 **Total Repos**         | 16                                        |
-| 📝 **Lines of Code**       | 8,186,190 ($$\color{\#2dba4e}5,661,839++ \space \space \space \color{\#f0440a}2,524,351--$$)                        |
+| 📝 **Lines of Code**       | 8,189,654 ($$\color{\#2dba4e}5,664,127++ \space \space \space \color{\#f0440a}2,525,527--$$)                        |
 
 ---
 
