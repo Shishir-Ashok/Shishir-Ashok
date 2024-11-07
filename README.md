@@ -20,7 +20,7 @@ I'm a data science enthusiast transitioning from a network engineering backgroun
 
 | **Metric**                  | **Stats**                                           |
 | --------------------------- | --------------------------------------------------- |
-| 🛠️ **Current Project**     | [Shishir-Ashok/server](https://github.com/Shishir-Ashok/server)                |
+| 🛠️ **Current Project**     | [Shishir-Ashok/Shishir-Ashok](https://github.com/Shishir-Ashok/Shishir-Ashok)                |
 | 📂 **Total Repos**         | 16                                        |
 | 📝 **Lines of Code**       | 8,192,416 ($$\color{\#2dba4e}5,665,634++ \space \space \space \color{\#f0440a}2,526,782--$$)                        |
 
