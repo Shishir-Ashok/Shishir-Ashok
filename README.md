@@ -20,9 +20,9 @@ I'm a data science enthusiast transitioning from a network engineering backgroun
 
 | **Metric**                  | **Stats**                                           |
 | --------------------------- | --------------------------------------------------- |
-| 🛠️ **Current Project**     | [Shishir-Ashok/Shishir-Ashok](https://github.com/Shishir-Ashok/Shishir-Ashok)                |
-| 📂 **Total Repos**         | 18                                        |
-| 📝 **Lines of Code**       | 8,252,922 ($$\color{\#2dba4e}5,712,393++ \space \space \space \color{\#f0440a}2,540,529--$$)                        |
+| 🛠️ **Current Project**     | [Shishir-Ashok/interactive-cnn](https://github.com/Shishir-Ashok/interactive-cnn)                |
+| 📂 **Total Repos**         | 20                                        |
+| 📝 **Lines of Code**       | 8,255,096 ($$\color{\#2dba4e}5,713,829++ \space \space \space \color{\#f0440a}2,541,267--$$)                        |
 
 ---
 
