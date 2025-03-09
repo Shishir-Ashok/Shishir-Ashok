@@ -27,7 +27,11 @@ def get_current_repo():
     response = request_call(query)
     if response.status_code == 200:
         print("Repo: ",response.json())
-        return response.json()['data']['user']['repositories']['nodes'][0]['nameWithOwner'], response.json()['data']['user']['repositories']['nodes'][0]['url']
+        repo = response.json()['data']['user']['repositories']['nodes'][0]['nameWithOwner']
+        url = response.json()['data']['user']['repositories']['nodes'][0]['url']
+        print(f"\nName : {repo}\t Type : {type(repo)}")
+        print(f"\nName : {url}\t Type : {type(url)}")
+        return repo, url
     else:
         raise Exception('Failed to fetch current repo', response.status_code, response.text)
 
