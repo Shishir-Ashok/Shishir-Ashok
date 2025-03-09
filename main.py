@@ -15,7 +15,7 @@ def get_current_repo():
     query = '''
     query($login: String!) {
         user(login: $login) {
-            repositories(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
+            repositories(first: 2, orderBy: {field: UPDATED_AT, direction: DESC}) {
                 nodes {
                     nameWithOwner 
                     url 
@@ -114,10 +114,8 @@ def get_total_loc():
     else:
         raise Exception('Failed to fetch repositories', response.status_code, response.text)
 
-# This is your Python script that updates your README.md file with fresh data.
 
 def update_readme(current_repo, url_current_repo, repo_count, lines_added, lines_removed, total_contributions):
-    # Define the markdown content as a formatted string
     readme_content = f"""
 # 👋 Hello! I'm Shishir
 
@@ -153,7 +151,6 @@ I love connecting with fellow data enthusiasts, professionals, and learners. Whe
 ![](https://komarev.com/ghpvc/?username=shishir-ashok&color=blue)
     """
 
-    # Write the content to README.md
     with open("README.md", "w", encoding='utf-8') as file:
         file.write(readme_content)
 
@@ -161,6 +158,12 @@ I love connecting with fellow data enthusiasts, professionals, and learners. Whe
 if __name__ == '__main__':
     
     current_repo, url_current_repo = get_current_repo()
+    if current_repo[0] == "Shishir-Ashok/Shishir-Ashok":
+        current_repo = current_repo[1]
+        url_current_repo = url_current_repo[1]
+    else:
+        current_repo = current_repo[0]
+        url_current_repo = url_current_repo[0]
     repo_count = get_repo_count()
     lines_added, lines_removed = get_total_loc()
     total_contributions = lines_added + lines_removed
