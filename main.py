@@ -158,6 +158,7 @@ I love connecting with fellow data enthusiasts, professionals, and learners. Whe
 if __name__ == '__main__':
     
     current_repo, url_current_repo = get_current_repo()
+    print("current repo: ",current_repo,"\nURL: ", url_current_repo) 
     if current_repo[0] == "Shishir-Ashok/Shishir-Ashok":
         current_repo = current_repo[1]
         url_current_repo = url_current_repo[1]
