@@ -22,7 +22,7 @@ I'm a data science enthusiast transitioning from a network engineering backgroun
 | --------------------------- | --------------------------------------------------- |
 | 🛠️ **Current Project**     | [Shishir-Ashok/StoryWeaverBackend](https://github.com/Shishir-Ashok/StoryWeaverBackend)                |
 | 📂 **Total Repos**         | 24                                        |
-| 📝 **Lines of Code**       | 8,985,860 ($$\color{\#2dba4e}6,426,063++ \space \space \space \color{\#f0440a}2,559,797--$$)                        |
+| 📝 **Lines of Code**       | 8,995,152 ($$\color{\#2dba4e}6,430,525++ \space \space \space \color{\#f0440a}2,564,627--$$)                        |
 
 ---
 
