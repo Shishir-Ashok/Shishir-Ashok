@@ -20,9 +20,9 @@ I'm a data science enthusiast transitioning from a network engineering backgroun
 
 | **Metric**                  | **Stats**                                           |
 | --------------------------- | --------------------------------------------------- |
-| 🛠️ **Current Project**     | [Shishir-Ashok/StoryWeaverBackend](https://github.com/Shishir-Ashok/StoryWeaverBackend)                |
+| 🛠️ **Current Project**     | [Shishir-Ashok/StoryWeaverFrontend](https://github.com/Shishir-Ashok/StoryWeaverFrontend)                |
 | 📂 **Total Repos**         | 24                                        |
-| 📝 **Lines of Code**       | 8,995,152 ($$\color{\#2dba4e}6,430,525++ \space \space \space \color{\#f0440a}2,564,627--$$)                        |
+| 📝 **Lines of Code**       | 8,996,748 ($$\color{\#2dba4e}6,431,469++ \space \space \space \color{\#f0440a}2,565,279--$$)                        |
 
 ---
 
