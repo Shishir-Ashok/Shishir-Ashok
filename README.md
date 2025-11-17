@@ -8,11 +8,11 @@
 ## 🌟 About Me
 I'm a data science enthusiast transitioning from a network engineering background. With over 3 years of experience in automating workflows and optimizing secure infrastructures, I'm now diving deep into the world of data science.
 
-| Attribute          | Details                                                                                 |
-|--------------------|-----------------------------------------------------------------------------------------|
-| 🎓 **Education**   | Master's in Data Science and Analytics at Maynooth University (first class honours 1.1) |
-| 🌐 **Portfolio**   | [Check out my work](https://shishir-ashok.netlify.app/)                                 |
-| 📫 **Contact**     | [shishir.ashoka@gmail.com](mailto:shishir.ashoka@gmail.com)                             |
+| Attribute          | Details                                                                 |
+|--------------------|-------------------------------------------------------------------------|
+| 🎓 **Education**   | Pursuing a Master's in Data Science and Analytics at Maynooth University|
+| 🌐 **Portfolio**   | [Check out my work](https://shishir-ashok.netlify.app/)                 |
+| 📫 **Contact**     | [shishir.ashoka@gmail.com](mailto:shishir.ashoka@gmail.com)             |
 
 ---
 
@@ -20,9 +20,9 @@ I'm a data science enthusiast transitioning from a network engineering backgroun
 
 | **Metric**                  | **Stats**                                           |
 | --------------------------- | --------------------------------------------------- |
-| 🛠️ **Current Project**     | [Shishir-Ashok/StoryWeaverBackend](https://github.com/Shishir-Ashok/StoryWeaverBackend)                |
-| 📂 **Total Repos**         | 24                                        |
-| 📝 **Lines of Code**       | 8,999,792 ($$\color{\#2dba4e}6,433,877++ \space \space \space \color{\#f0440a}2,565,915--$$)                        |
+| 🛠️ **Current Project**     | [Shishir-Ashok/RAG](https://github.com/Shishir-Ashok/RAG)                |
+| 📂 **Total Repos**         | 26                                        |
+| 📝 **Lines of Code**       | 9,700,469 ($$\color{\#2dba4e}7,133,603++ \space \space \space \color{\#f0440a}2,566,866--$$)                        |
 
 ---
 
