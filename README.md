@@ -8,11 +8,11 @@
 ## 🌟 About Me
 I'm a data science enthusiast transitioning from a network engineering background. With over 3 years of experience in automating workflows and optimizing secure infrastructures, I'm now diving deep into the world of data science.
 
-| Attribute          | Details                                                                 |
-|--------------------|-------------------------------------------------------------------------|
-| 🎓 **Education**   | Pursuing a Master's in Data Science and Analytics at Maynooth University|
-| 🌐 **Portfolio**   | [Check out my work](https://shishir-ashok.netlify.app/)                 |
-| 📫 **Contact**     | [shishir.ashoka@gmail.com](mailto:shishir.ashoka@gmail.com)             |
+| Attribute          | Details                                                                                 |
+|--------------------|-----------------------------------------------------------------------------------------|
+| 🎓 **Education**   | Master's in Data Science and Analytics at Maynooth University (first class honours 1.1) |
+| 🌐 **Portfolio**   | [Check out my work](https://shishir-ashok.netlify.app/)                                 |
+| 📫 **Contact**     | [shishir.ashoka@gmail.com](mailto:shishir.ashoka@gmail.com)                             |
 
 ---
 
