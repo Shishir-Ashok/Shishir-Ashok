@@ -20,9 +20,9 @@ I'm a data science enthusiast transitioning from a network engineering backgroun
 
 | **Metric**                  | **Stats**                                           |
 | --------------------------- | --------------------------------------------------- |
-| 🛠️ **Current Project**     | [Shishir-Ashok/RAG](https://github.com/Shishir-Ashok/RAG)                |
-| 📂 **Total Repos**         | 26                                        |
-| 📝 **Lines of Code**       | 9,700,469 ($$\color{\#2dba4e}7,133,603++ \space \space \space \color{\#f0440a}2,566,866--$$)                        |
+| 🛠️ **Current Project**     | [Shishir-Ashok/Bet-EPL](https://github.com/Shishir-Ashok/Bet-EPL)                |
+| 📂 **Total Repos**         | 27                                        |
+| 📝 **Lines of Code**       | 9,721,908 ($$\color{\#2dba4e}7,152,881++ \space \space \space \color{\#f0440a}2,569,027--$$)                        |
 
 ---
 
