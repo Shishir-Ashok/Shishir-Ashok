@@ -22,7 +22,7 @@ I'm a data science enthusiast transitioning from a network engineering backgroun
 | --------------------------- | --------------------------------------------------- |
 | 🛠️ **Current Project**     | [Shishir-Ashok/Bet-EPL](https://github.com/Shishir-Ashok/Bet-EPL)                |
 | 📂 **Total Repos**         | 27                                        |
-| 📝 **Lines of Code**       | 9,721,908 ($$\color{\#2dba4e}7,152,881++ \space \space \space \color{\#f0440a}2,569,027--$$)                        |
+| 📝 **Lines of Code**       | 9,723,727 ($$\color{\#2dba4e}7,154,036++ \space \space \space \color{\#f0440a}2,569,691--$$)                        |
 
 ---
 
