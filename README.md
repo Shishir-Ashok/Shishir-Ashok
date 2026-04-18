@@ -1,18 +1,18 @@
 
 # 👋 Hello! I'm Shishir
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shshir-ashok) [![Medium](https://img.shields.io/badge/Medium-00AB6C?style=flat&logo=medium&logoColor=white&color=000000)](https://shishirashok.medium.com/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/shshir-ashok)
 
 ---
 
 ## 🌟 About Me
-I'm a data science enthusiast transitioning from a network engineering background. With over 3 years of experience in automating workflows and optimizing secure infrastructures, I'm now diving deep into the world of data science.
+I’m a data scientist who enjoys spotting business gaps, building scalable solutions, and turning messy data into something genuinely useful, while always staying curious about the latest in AI and machine learning.
 
-| Attribute          | Details                                                                 |
-|--------------------|-------------------------------------------------------------------------|
-| 🎓 **Education**   | Pursuing a Master's in Data Science and Analytics at Maynooth University|
-| 🌐 **Portfolio**   | [Check out my work](https://shishir-ashok.netlify.app/)                 |
-| 📫 **Contact**     | [shishir.ashoka@gmail.com](mailto:shishir.ashoka@gmail.com)             |
+| Attribute          | Details                                                                   |
+|--------------------|---------------------------------------------------------------------------|
+| 🎓 **Education**   | Master's Degree in Data Science and Analytics at Maynooth University (1:1)|
+| 🌐 **Portfolio**   | [Check out my work](https://shishir-ashok.netlify.app/)                   |
+| 📫 **Contact**     | [shishirashok17@gmail.com](mailto:shishirashok17@gmail.com)               |
 
 ---
 
@@ -22,7 +22,7 @@ I'm a data science enthusiast transitioning from a network engineering backgroun
 | --------------------------- | --------------------------------------------------- |
 | 🛠️ **Current Project**     | [Shishir-Ashok/Bet-EPL](https://github.com/Shishir-Ashok/Bet-EPL)                |
 | 📂 **Total Repos**         | 28                                        |
-| 📝 **Lines of Code**       | 9,723,853 ($$\color{\#2dba4e}7,154,100++ \space \space \space \color{\#f0440a}2,569,753--$$)                        |
+| 📝 **Lines of Code**       | 9,723,867 ($$\color{\#2dba4e}7,154,107++ \space \space \space \color{\#f0440a}2,569,760--$$)                        |
 
 ---
 
