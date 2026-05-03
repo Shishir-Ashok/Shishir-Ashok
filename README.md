@@ -22,7 +22,7 @@ I’m a data scientist who enjoys spotting business gaps, building scalable solu
 | --------------------------- | --------------------------------------------------- |
 | 🛠️ **Current Project**     | [Shishir-Ashok/Bet-EPL](https://github.com/Shishir-Ashok/Bet-EPL)                |
 | 📂 **Total Repos**         | 28                                        |
-| 📝 **Lines of Code**       | 9,723,867 ($$\color{\#2dba4e}7,154,107++ \space \space \space \color{\#f0440a}2,569,760--$$)                        |
+| 📝 **Lines of Code**       | 9,725,324 ($$\color{\#2dba4e}7,155,000++ \space \space \space \color{\#f0440a}2,570,324--$$)                        |
 
 ---
 
