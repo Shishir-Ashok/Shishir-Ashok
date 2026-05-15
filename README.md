@@ -20,9 +20,9 @@ I’m a data scientist who enjoys spotting business gaps, building scalable solu
 
 | **Metric**                  | **Stats**                                           |
 | --------------------------- | --------------------------------------------------- |
-| 🛠️ **Current Project**     | [Shishir-Ashok/Bet-EPL](https://github.com/Shishir-Ashok/Bet-EPL)                |
-| 📂 **Total Repos**         | 28                                        |
-| 📝 **Lines of Code**       | 9,725,324 ($$\color{\#2dba4e}7,155,000++ \space \space \space \color{\#f0440a}2,570,324--$$)                        |
+| 🛠️ **Current Project**     | [Shishir-Ashok/pratilipi_assessment](https://github.com/Shishir-Ashok/pratilipi_assessment)                |
+| 📂 **Total Repos**         | 29                                        |
+| 📝 **Lines of Code**       | 10,786,707 ($$\color{\#2dba4e}8,216,274++ \space \space \space \color{\#f0440a}2,570,433--$$)                        |
 
 ---
 
